@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subject Schedule</title>
+  <link rel="stylesheet" href="subject.css">
+  <style>
+     .container{
+    background-color: cornflowerblue;
+    border-radius: 5px;}
+    body{
+      background-color: rgb(57, 57, 87);
+    }
+    #btn{
+      border-radius: 5px;
+      background-color: grey;
+
+    }
+    body{
+      background-color: rgb(57, 57, 87);
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Btech 3 MVT Timetable</h1>
+  <div class="container">
+  <label for="day">Enter the day of the week</label><br>
+  <input type="text" id="day" name="day" placeholder="e.g. monday">
+  <br>
+  <button onclick="getSchedule()" id="btn">Get Schedule</button>
+  
+  <div id="schedule"></div>
+  
+  
+  <button onclick="refresh()" id="btn">Refresh</button>
+  <a href="Scientific.html"> <button onclick="()" id="btn">EnnieCalc</button></a>
+</div>
+
+  <script src="subject.js"></script>
+</body>
+</html>

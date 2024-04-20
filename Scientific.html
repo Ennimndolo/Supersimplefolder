@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator</title>
+  <style>
+    body {
+      background-color: rgb(57, 57, 87);
+      height: 370px;
+    
+    }
+
+    #header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      display: flex;
+      flex-direction: column;
+      grid-column: 2/3;
+      
+      width: fit-content;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      
+      background-color: (86, 104, 138);
+      border-radius: 1em 1em 0 0;
+      height: fit-content;
+      text-align: center;
+    }
+    cover{
+      width: 50%;
+
+    }
+    #container{
+      display: grid;
+      grid-template-columns: 1fr  1fr 1fr;
+      display: flex;
+      flex-direction: column;
+      grid-column: 2/3;
+    }
+
+    h1 {
+      background-color: rgb(86, 104, 138);
+      height: 1em;
+      width: 50%;
+      margin: 0 auto;
+      border-radius: 0 1em;
+      font-size: x-large;
+      text-align: center;
+      color: white;
+    }
+
+    .calculator {
+      width: fit-content;
+      margin: 50px auto;
+      border: 2px solid rgb(25, 65, 175);
+      padding-top: 20px;
+      background-color: rgb(86, 104, 138);
+      border-radius: 1em;
+      height: fit-content;
+    }
+
+    #display {
+      width: 96.8%;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 18px;
+      background-color: rgb(151, 167, 197);
+      border-radius: 5px;
+      border-color: purple;
+      height: 1.5em;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 5px;
+      border-radius: 20px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      border-color: purple;
+    }
+
+    #equal {
+      width: 100%;
+      padding-top: 10px;
+    }
+
+    h3 {
+      margin: 0 auto;
+      background-color: red;
+    }
+
+    h2 {
+      margin: 0 auto;
+    }
+
+    .menu {
+      position: relative;
+      display: inline-block;
+      background-color: grey;
+      border-radius: 5px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: large;
+      font-weight: 500;
+      
+    }
+
+    .menu-button {
+      background-color: transparent;
+      border: none;
+      width: fit-content;
+      height: fit-content;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .menu-content {
+      display: none;
+      position: absolute;
+      background-color: grey;
+      color: rgb(116, 107, 107);
+      min-width: 160px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 10px;
+    }
+
+    .menu-content a {
+      display: grid;
+      grid-template-columns: 1fr  1fr 1fr;
+      display: flex;
+      flex-direction: column;
+      grid-column: 2/3;
+      color: rgb(226, 166, 166);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .menu-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .menu-container {
+      border-radius: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <span id="cover">
+  <div id="container">
+<div class="menu-container">
+  <div class="menu">Menu
+    <button class="menu-button" onclick="toggleMenu()">...</button>
+    <div class="menu-content" id="menuContent">
+      <a href="salary.html">Salary Tax Calculator</a>
+      <a href="about.html">About the Developer</a>
+      <a href="btech.html">BTECH</a>
+      <a href="subject.html">Subject Schedule</a>
+    
+    </div>
+  </div>
+
+  <div id="header">
+    <h2>
+      <a href="PolyPortals.html"> <img src="log.jpg" style="height: 1em; width: 1em; border-radius: 20px;"></a>🌐🌐🌐
+      <a href="btech.html"> <img src="settings.png" style="height: 1em; width: 1em; border-radius: 20px;"></a>
+    </h2>
+  </div>
+  <h1>
+    <a href="about.html"><img src="ennn.jpg" style="height:3.2em; width: 2.8em; border-radius: 40px;"></a>
+  </h1>
+  <div class="calculator">
+    <input type="text" id="display" placeholder="EnnieCalcDevelopers" readonly>
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="exp()">exp</button>
+      <button onclick="square()">x²</button>
+      <button onclick="appendToDisplay('1')" style="background-color: grey; color: white;">1</button>
+      <button onclick="appendToDisplay('2')" style="background-color: grey; color: white;">2</button>
+      <button onclick="appendToDisplay('3')" style="background-color: grey; color: white;">3</button>
+      <button onclick="euler()">e</button>
+      <button onclick="sqrt()">√</button>
+      <button onclick="backspace()">←</button>
+      <button onclick="appendToDisplay('4')" style="background-color: grey; color: white;">4</button>
+      <button onclick="appendToDisplay('5')" style="background-color: grey; color: white;">5</button>
+      <button onclick="appendToDisplay('6')" style="background-color: grey; color: white;">6</button>
+      <button onclick="appendToDisplay('+')" style="background-color: grey; color: white;">+</button>
+      <button onclick="log()">log</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button onclick="appendToDisplay('7')" style="background-color: grey; color: white;">7</button>
+      <button onclick="appendToDisplay('8')" style="background-color: grey; color: white;">8</button>
+      <button onclick="appendToDisplay('9')" style="background-color: grey; color: white;">9</button>
+      <button onclick="appendToDisplay('-')" style="background-color: grey; color: white;">-</button>
+      <button onclick="sin()">sin</button>
+      <button onclick="cos()">cos</button>
+      <button onclick="tan()">tan</button>
+      <button onclick="appendToDisplay('0')" style="background-color: grey; color: white;">0</button>
+      <button onclick="ln()">ln</button>
+      <button onclick="appendToDisplay('/')" style="background-color: grey; color: white">/</button>
+      <button onclick="factorial()">!</button>
+      <button onclick="absolute()">|x|</button>
+      <button onclick="power()">x^y</button>
+      <button onclick="inverse()">1/x</button>
+      <button onclick="pi()">π</button>
+      <button onclick="appendToDisplay('*')" style="background-color: grey; color: white;">*</button>
+
+
+      <a href="welcome.html"><button onclick="( )" style="background-color: grey; color: white; width: 4m;">Home</button></a>
+
+    </div>
+    <br>
+    <button id="equal" autocapitalize="" onclick="calculate()">=</button>
+
+  </div>
+</div>
+</div>
+</span>
+<script>
+  let display = document.getElementById('display');
+
+  function appendToDisplay(value) {
+    display.value += value;
+  }
+
+  function clearDisplay() {
+    display.value = '';
+  }
+
+  function backspace() {
+    display.value = display.value.slice(0, -1);
+  }
+
+  function calculate() {
+    try {
+      display.value = eval(display.value);
+    } catch (error) {
+      display.value = 'Syntax Error';
+    }
+  }
+
+  function square() {
+    display.value = Math.pow(eval(display.value), 2);
+  }
+
+  function sqrt() {
+    display.value = Math.sqrt(eval(display.value));
+  }
+
+  function sin() {
+    display.value = Math.sin(eval(display.value));
+  }
+
+  function cos() {
+    display.value = Math.cos(eval(display.value));
+  }
+
+  function tan() {
+    display.value = Math.tan(eval(display.value));
+  }
+
+  function log() {
+    display.value = Math.log10(eval(display.value));
+  }
+
+  function ln() {
+    display.value = Math.log(eval(display.value));
+  }
+
+  function exp() {
+    display.value = Math.exp(eval(display.value));
+  }
+
+  function factorial() {
+    let result = 1;
+    for (let i = 2; i <= eval(display.value); i++) {
+      result *= i;
+    }
+    display.value = result;
+  }
+
+  function absolute() {
+    display.value = Math.abs(eval(display.value));
+  }
+
+  function power() {
+    display.value = Math.pow(eval(display.value), eval(prompt("Enter the power value:")));
+  }
+
+  function inverse() {
+    display.value = 1 / eval(display.value);
+  }
+
+  function pi() {
+    display.value = Math.PI;
+  }
+
+  function euler() {
+    display.value = Math.E;
+  }
+
+  function toggleMenu() {
+    var menu = document.getElementById("menuContent");
+    var menuContainer = document.querySelector(".menu-container"); // Define menuContainer here
+
+    if (menu.style.display === "none" || menu.style.display === "") {
+      menu.style.display = "block";
+      menuContainer.classList.add("rounded");
+    } else {
+      menu.style.display = "none";
+      menuContainer.classList.remove("rounded");
+    }
+  }
+</script>
+</body>
+</html>
